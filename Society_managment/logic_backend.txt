@@ -1,0 +1,7 @@
+ Things You'll Calculate in Backend (FastAPI)
+
+    due_date = start_date + INTERVAL 1 MONTH
+
+    maintenance_fee = fetch from flat_types when inserting/updating flat
+
+    total_due = maintenance_fee + due_amt + fine + miscellaneous — auto-update via backend or trigger
