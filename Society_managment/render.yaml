@@ -6,5 +6,5 @@ services:
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
     envVars:
       - key: PORT
-        value: 10000
+        value: postgresql://society_managment_user:0iuv1MzFh8izmCI4H5loPBgFaMQv8nTh@dpg-d1g078vfte5s7382hkd0-a/society_managment
 
