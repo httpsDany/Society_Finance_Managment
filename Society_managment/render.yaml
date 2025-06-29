@@ -1,10 +1,29 @@
 services:
   - type: web
-    name: fastapi-backend
+    name: society-backend
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
     envVars:
-      - key: PORT
-        value: postgresql://society_managment_user:0iuv1MzFh8izmCI4H5loPBgFaMQv8nTh@dpg-d1g078vfte5s7382hkd0-a/society_managment
+      - key: DATABASE_URL
+        fromDatabase:
+          name: society-db
+          property: connectionString
 
+  - type: cron
+    name: init-db
+    schedule: "@once"
+    env: docker
+    buildCommand: ""
+    startCommand: >
+      sh -c "apt-get update &&
+             apt-get install -y mysql-client &&
+             mysql -h <host> -u <user> -p<password> -P 3306 < /etc/init.sql"
+    envVars:
+      - key: MYSQL_PWD
+        value: <password>
+    mounts:
+      - name: sql-volume
+        path: /etc/init.sql
+        contents:
+          file: init.sql
