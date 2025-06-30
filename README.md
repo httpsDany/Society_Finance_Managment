@@ -13,3 +13,5 @@ The webapp is extremly simplified with high flexibility for admin, such as:
 
 Also i have tried deploying the backend in a free hosting platform however the latency is high and it needs some polishing.
 link: https://society-finance-managment-jlkn.onrender.com/docs
+
+Note: This project turned out to be a failure, but i did my best, i will continue to work on my skills.
